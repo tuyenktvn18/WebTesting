@@ -1,4 +1,4 @@
-package com.practice.pageUI;
+package com.practice.pageUI.pages;
 
 import org.openqa.selenium.By;
 

@@ -1,13 +1,13 @@
-package com.tmb.config;
+package com.practice.config.config;
 
-import com.tmb.config.converters.StringToURLConverter;
+import com.practice.config.converter.StringToURLConverter;
 import org.aeonbits.owner.Config;
 
 import java.net.URL;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-  "file:${user.dir}/src/test/resources/sauce-labs.properties"
+  "file:${user.dir}/src/test/resources/config/sauce-labs.properties"
 })
 public interface SauceLabsConfig extends Config {
 

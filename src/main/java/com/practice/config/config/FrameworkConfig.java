@@ -1,24 +1,43 @@
-package com.practice.config;
+package com.practice.config.config;
 
-import com.practice.enums.BrowserRemoteModeType;
-import com.practice.enums.BrowserType;
-import com.practice.enums.BrowserRunMode;
+import com.practice.config.converter.StringToBrowserTypeConverter;
+import com.practice.config.converter.StringToRemoteModeBrowserTypeConverter;
+import com.practice.config.converter.StringToRunModeTypeConverter;
+import com.practice.config.converter.StringToURLConverter;
+import com.practice.enums.config.BrowserRemoteModeType;
+import com.practice.enums.config.BrowserType;
+import com.practice.enums.config.RunModeType;
 import org.aeonbits.owner.Config;
 import org.aeonbits.owner.Config.Sources;
 import org.aeonbits.owner.Config.LoadPolicy;
 
+import java.net.URL;
+
 @LoadPolicy(Config.LoadType.MERGE)
 @Sources({
-        "system:properties",
-        "system:env",
-        "file:./src/test/config.properties",
-        "file:./src/test/resources/config/data.properties"})
+        "file:${user.dir}/src/test/resources/config/config.properties",
+        "file:${user.dir}/src/test/resources/config/staging-config.properties",
+        "file:${user.dir}/src/test/resources/config/dev-config.properties"})
 public interface FrameworkConfig extends Config {
 
-    @DefaultValue("CHROME")
+    @DefaultValue("staging")
+    String environment();
+
+    @Key("${environment}.webUrl")
+    String webUrl();
+
+    @ConverterClass(StringToBrowserTypeConverter.class)
     BrowserType browser();
 
-    BrowserRunMode browserRunMode();
+    @ConverterClass(StringToRunModeTypeConverter.class)
+    RunModeType runModeType();
 
+    @ConverterClass(StringToRemoteModeBrowserTypeConverter.class)
     BrowserRemoteModeType browserRemoteMode();
+
+    @ConverterClass(StringToURLConverter.class)
+    URL seleniumGridURL();
+
+    @ConverterClass(StringToURLConverter.class)
+    URL selenoidURL();
 }

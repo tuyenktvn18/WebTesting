@@ -1,4 +1,4 @@
-package com.tmb.config;
+package com.practice.config.config;
 
 import org.aeonbits.owner.Config;
 
@@ -6,9 +6,9 @@ import org.aeonbits.owner.Config;
 @Config.Sources({
   "system:properties",
   "system:env",
-  "file:${user.dir}/src/test/resources/api-config.properties",
-  "file:${user.dir}/src/test/resources/api-staging-config.properties",
-  "file:${user.dir}/src/test/resources/api-dev-config.properties"
+  "file:${user.dir}/src/test/resources/config/api-config.properties",
+  "file:${user.dir}/src/test/resources/config/api-staging-config.properties",
+  "file:${user.dir}/src/test/resources/config/api-dev-config.properties"
 })
 public interface ApiConfig extends Config {
 

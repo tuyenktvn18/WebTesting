@@ -1,4 +1,4 @@
-package com.tmb.config.converters;
+package com.practice.config.converter;
 
 import lombok.SneakyThrows;
 import org.aeonbits.owner.Converter;

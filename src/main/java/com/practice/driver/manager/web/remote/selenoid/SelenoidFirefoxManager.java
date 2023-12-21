@@ -1,6 +1,6 @@
-package com.tmb.driver.manager.web.remote.selenoid;
+package com.practice.driver.manager.web.remote.selenoid;
 
-import com.tmb.config.factory.ConfigFactory;
+import com.practice.config.factory.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -16,7 +16,6 @@ public final class SelenoidFirefoxManager {
     capabilities.setCapability("browserVersion", "91.0");
     capabilities.setCapability("enableVNC", true);
     capabilities.setCapability("enableVideo", false);
-    return new RemoteWebDriver(ConfigFactory.getConfig()
-                                 .selenoidURL(), capabilities);
+    return new RemoteWebDriver(ConfigFactory.getConfig().selenoidURL(), capabilities);
   }
 }

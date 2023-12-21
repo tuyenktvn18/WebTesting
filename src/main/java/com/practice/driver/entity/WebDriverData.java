@@ -1,7 +1,8 @@
-package com.tmb.driver.entity;
+package com.practice.driver.entity;
 
-import com.tmb.enums.BrowserRemoteModeType;
-import com.tmb.enums.BrowserType;
+
+import com.practice.enums.config.BrowserRemoteModeType;
+import com.practice.enums.config.BrowserType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

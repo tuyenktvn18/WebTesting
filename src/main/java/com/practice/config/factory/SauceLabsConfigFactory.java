@@ -1,6 +1,6 @@
-package com.tmb.config.factory;
+package com.practice.config.factory;
 
-import com.tmb.config.SauceLabsConfig;
+import com.practice.config.config.SauceLabsConfig;
 import org.aeonbits.owner.ConfigCache;
 
 public final class SauceLabsConfigFactory {

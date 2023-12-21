@@ -1,4 +1,4 @@
-package reportConfig;
+package com.practice.reportConfig;
 
 import org.testng.ITestResult;
 

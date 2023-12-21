@@ -1,4 +1,4 @@
-package reportConfig;
+package com.practice.reportConfig;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

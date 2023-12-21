@@ -1,6 +1,6 @@
-package com.tmb.config.factory;
+package com.practice.config.factory;
 
-import com.tmb.config.BrowserStackConfig;
+import com.practice.config.config.BrowserStackConfig;
 import org.aeonbits.owner.ConfigCache;
 
 public final class BrowserStackConfigFactory {

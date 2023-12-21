@@ -2,22 +2,15 @@
 
 <suite name="Regression" >
     <listeners>
-        <listener class-name="reportConfig.Allure.MethodListener" />
-        <listener class-name="reportConfig.Allure.AllureTestListener" />
+        <listener class-name="com.practice.reportConfig.MethodListener"/>
+        <listener class-name="com.practice.reportConfig.AllureTestListener"/>
     </listeners>
-    <test name="Categories" >
+    <test name="Regression on Chrome">
         <parameter name="browserName" value="CHROME"/>
-        <parameter name="urlUser" value="https://demo.nopcommerce.com/"/>
-        <parameter name="urlAdmin" value="https://admin-demo.nopcommerce.com/login?ReturnUrl=/admin/"/>
         <classes>
-            <class name="com.nopCommerce.testCases.commons.Common_1_RegisterToSystem"/>
-            <class name="com.nopCommerce.testCases.user.User_0_Register"/>
-            <class name="com.nopCommerce.testCases.user.User_1_Login"/>
-            <class name="com.nopCommerce.testCases.user.User_2_MyAccount"/>
-            <class name="com.nopCommerce.testCases.user.User_3_SearchProduct"/>
-            <class name="com.nopCommerce.testCases.user.User_4_SortDisplayPaging"/>
-            <class name="com.nopCommerce.testCases.user.User_5_WishlistCompareRecentView"/>
-<!--            <class name="com.nopCommerce.testCases.user.User_6_Order"/>-->
+            <class name="com.practice.tests.web.Employee_Test_001"/>
+            <class name="com.practice.tests.web.HomePageTest"/>
+            <class name="com.practice.tests.web.LeftMenuComponentTest"/>
         </classes>
     </test>
 </suite>

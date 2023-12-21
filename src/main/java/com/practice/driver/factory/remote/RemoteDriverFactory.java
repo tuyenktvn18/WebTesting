@@ -1,5 +1,7 @@
-package com.practice.driver.remote;
+package com.practice.driver.factory.remote;
 
+import com.practice.enums.config.BrowserRemoteModeType;
+import com.practice.enums.config.BrowserType;
 import org.openqa.selenium.WebDriver;
 import java.util.EnumMap;
 import java.util.Map;

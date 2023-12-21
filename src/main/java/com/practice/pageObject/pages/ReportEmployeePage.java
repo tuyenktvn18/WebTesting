@@ -1,2 +1,4 @@
-package com.practice.pageObject.pages;public class ReportEmployeePage {
+package com.practice.pageObject.pages;
+
+public class ReportEmployeePage extends EmployeeList{
 }

@@ -1,14 +1,13 @@
-package com.practice.tests.web;
+package com.practice.commons;
 
 import com.practice.constants.GlobalConstants;
 import com.practice.driver.manager.Driver;
 import com.practice.driver.manager.DriverManager;
 import org.joda.time.DateTime;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.*;
-import reportConfig.VerificationFailures;
+import com.practice.reportConfig.VerificationFailures;
 
 import java.io.File;
 import java.util.Random;
@@ -20,19 +19,15 @@ public class BaseTest {
         deleteAllFileInFolder();
     }
 
-    public WebDriver getDriver() {
-        return DriverManager.getDriver();
-    }
-
     @BeforeClass
-    public synchronized void startDriver(@Optional String browserName) {
+    public synchronized void startDriver() {
         Driver.initDriverForWeb();
-        getDriver().manage().window().maximize();
-        System.out.println("Current Thread info = " + Thread.currentThread().getId() + ", Driver = " + getDriver());
+        DriverManager.getDriver().manage().window().maximize();
+        System.out.println("Current Thread info = " + Thread.currentThread().getId() + ", Driver = " + DriverManager.getDriver());
     }
 
     public void openPage(String pageUrl){
-        getDriver().get(pageUrl);
+        DriverManager.getDriver().get(pageUrl);
     }
     public void deleteAllFileInFolder() {
         try {
@@ -58,7 +53,7 @@ public class BaseTest {
 
     @AfterClass(alwaysRun = true)
     protected void closeBrowserAndDriver() {
-        getDriver().quit();
+        Driver.quitDriver();
     }
 
     protected String getCurrentDay() {

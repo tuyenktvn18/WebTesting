@@ -1,8 +1,8 @@
-package com.practice.driver.remote;
+package com.practice.driver.factory.remote;
 
 import com.practice.driver.manager.web.remote.selenoid.SelenoidChromeManager;
 import com.practice.driver.manager.web.remote.selenoid.SelenoidFirefoxManager;
-import com.practice.enums.BrowserType;
+import com.practice.enums.config.BrowserType;
 import org.openqa.selenium.WebDriver;
 
 import java.util.EnumMap;

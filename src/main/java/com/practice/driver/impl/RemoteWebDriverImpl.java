@@ -1,8 +1,8 @@
-package com.tmb.driver.impl.web;
+package com.practice.driver.impl;
 
-import com.tmb.driver.IWebDriver;
-import com.tmb.driver.entity.WebDriverData;
-import com.tmb.driver.factory.web.remote.RemoteDriverFactory;
+import com.practice.driver.entity.WebDriverData;
+import com.practice.driver.factory.remote.RemoteDriverFactory;
+import com.practice.driver.manager.IWebDriver;
 import org.openqa.selenium.WebDriver;
 
 public class RemoteWebDriverImpl implements IWebDriver {

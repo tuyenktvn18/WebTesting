@@ -7,10 +7,19 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class AddNewEmployeeCreds {
+public class AddNewEmployeeCred {
     private String firstName;
     private String lastName;
     private String middleName;
     private String employeeId;
 
+    @Override
+    public String toString() {
+        return "AddNewEmployeeCred{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", employeeId='" + employeeId + '\'' +
+                '}';
+    }
 }

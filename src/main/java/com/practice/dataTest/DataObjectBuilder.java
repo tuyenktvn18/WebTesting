@@ -1,4 +1,4 @@
-package com.practice.commons;
+package com.practice.dataTest;
 
 import com.google.gson.Gson;
 import com.practice.constants.GlobalConstants;

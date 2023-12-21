@@ -1,4 +1,6 @@
-package com.practice.pageObject.page;
+package com.practice.pageObject.pages;
+
+import com.practice.pageObject.components.LeftMenuComp;
 
 public class PageGeneratorManager {
 
@@ -6,7 +8,21 @@ public class PageGeneratorManager {
         return new LoginPage();
     }
 
-    public static DashboardPage getHomePage() {
-        return new DashboardPage();
+    public static HomePage getHomePage() {
+        return new HomePage();
+    }
+
+    public static LeftMenuComp getLeftMenuComponents() {
+        return new LeftMenuComp();
+    }
+    public static AddEmployee getAddEmployeePage() {
+        return new AddEmployee();
+    }
+    public static EmployeeList getEmployeeListPage() {
+        return new EmployeeList();
+    }
+
+    public static ReportEmployeePage getReportEmpPage() {
+        return new ReportEmployeePage();
     }
 }

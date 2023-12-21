@@ -1,4 +1,4 @@
-package com.practice.commons;
+package com.practice.constants;
 
 import lombok.Getter;
 

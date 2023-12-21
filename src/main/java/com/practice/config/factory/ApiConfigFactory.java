@@ -1,6 +1,7 @@
-package com.tmb.config.factory;
+package com.practice.config.factory;
 
-import com.tmb.config.ApiConfig;
+
+import com.practice.config.config.ApiConfig;
 import org.aeonbits.owner.ConfigCache;
 
 public final class ApiConfigFactory {

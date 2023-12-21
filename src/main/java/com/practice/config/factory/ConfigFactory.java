@@ -1,5 +1,6 @@
-package com.practice.config;
+package com.practice.config.factory;
 
+import com.practice.config.config.FrameworkConfig;
 import org.aeonbits.owner.ConfigCache;
 
 public final class ConfigFactory {

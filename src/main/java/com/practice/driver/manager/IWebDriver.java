@@ -1,6 +1,7 @@
-package com.tmb.driver;
+package com.practice.driver.manager;
 
-import com.tmb.driver.entity.WebDriverData;
+
+import com.practice.driver.entity.WebDriverData;
 import org.openqa.selenium.WebDriver;
 
 public interface IWebDriver {

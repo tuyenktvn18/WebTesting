@@ -1,13 +1,13 @@
-package com.tmb.config;
+package com.practice.config.config;
 
-import com.tmb.config.converters.StringToURLConverter;
+import com.practice.config.converter.StringToURLConverter;
 import org.aeonbits.owner.Config;
 
 import java.net.URL;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-  "file:${user.dir}/src/test/resources/browser-stack.properties"
+  "file:${user.dir}/src/test/resources/config/browser-stack.properties"
 })
 public interface BrowserStackConfig extends Config {
 

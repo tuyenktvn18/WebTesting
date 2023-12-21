@@ -1,6 +1,6 @@
-package com.tmb.driver.manager.web.remote.browserstack;
+package com.practice.driver.manager.web.remote.browserstack;
 
-import com.tmb.config.factory.BrowserStackConfigFactory;
+import com.practice.config.factory.BrowserStackConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
