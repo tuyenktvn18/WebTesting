@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression" >
+    <listeners>
+        <listener class-name="reportConfig.Allure.MethodListener" />
+        <listener class-name="reportConfig.Allure.AllureTestListener" />
+    </listeners>
+    <test name="Categories" >
+        <parameter name="browserName" value="CHROME"/>
+        <parameter name="urlUser" value="https://demo.nopcommerce.com/"/>
+        <parameter name="urlAdmin" value="https://admin-demo.nopcommerce.com/login?ReturnUrl=/admin/"/>
+        <classes>
+            <class name="com.nopCommerce.testCases.commons.Common_1_RegisterToSystem"/>
+            <class name="com.nopCommerce.testCases.user.User_0_Register"/>
+            <class name="com.nopCommerce.testCases.user.User_1_Login"/>
+            <class name="com.nopCommerce.testCases.user.User_2_MyAccount"/>
+            <class name="com.nopCommerce.testCases.user.User_3_SearchProduct"/>
+            <class name="com.nopCommerce.testCases.user.User_4_SortDisplayPaging"/>
+            <class name="com.nopCommerce.testCases.user.User_5_WishlistCompareRecentView"/>
+<!--            <class name="com.nopCommerce.testCases.user.User_6_Order"/>-->
+        </classes>
+    </test>
+</suite>
