@@ -3,8 +3,9 @@ package com.practice.tests.web;
 import com.practice.commons.BaseTest;
 import com.practice.dataTest.DataObjectBuilder;
 import com.practice.dataTest.models.AddNewEmployeeCred;
-import com.practice.pageObject.pages.AddEmployee;
-import com.practice.pageObject.pages.EmployeeList;
+import com.practice.pageObject.pages.AddEmployeePage;
+import com.practice.pageObject.pages.EmployeeListPage;
+import com.practice.pageObject.pages.PersonalDetailsPage;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -12,7 +13,7 @@ import org.testng.annotations.Test;
 import static com.practice.pageObject.pages.PageGeneratorManager.*;
 
 public class Employee_Test_001 extends BaseTest {
-    private String employeeId;
+    private String employeeId ;
     @Test
     public void TC_000_LoginToApplication() {
         getLoginPage().loginToApplication("Admin", "admin123");
@@ -20,32 +21,46 @@ public class Employee_Test_001 extends BaseTest {
 
     @Test(dataProvider = "AddNewEmployeeData")
     public void TC_001_Add_New_Employee(AddNewEmployeeCred addNewEmployeeCred) {
-        AddEmployee addEmployee = getHomePage()
+        addNewEmployeeCred.setEmployeeId(String.valueOf(getRandomNumber()));
+        employeeId = addNewEmployeeCred.getEmployeeId();
+        AddEmployeePage addEmployeePage = getHomePage()
                 .navigateToEmpListPage()
                 .setAddBtn()
                 .fillDetails(addNewEmployeeCred);
-        employeeId = addEmployee.getEmployeeId();
-        Assert.assertTrue(addEmployee.isSuccessSaveMessageDisplayed());
+        Assert.assertTrue(addEmployeePage.isSuccessSaveMessageDisplayed());
     }
 
     @Test
     public void TC_002_Upload_Avatar() {
-        EmployeeList employeeList = getEmployeeListPage()
+        EmployeeListPage employeeListPage = getEmployeeListPage()
                 .uploadAvatar();
 
-        Assert.assertTrue(employeeList.isSuccessUpdatedMessageDisplayed());
+        Assert.assertTrue(employeeListPage.isSuccessUpdatedMessageDisplayed());
     }
 
     @Test
     public void TC_003_Search_Employee(){
-        EmployeeList employeeList = getEmployeeListPage()
+        EmployeeListPage employeeListPage = getEmployeeListPage()
                 .openTabInPimMenu("Employee List")
-                .enterEmployeeId(employeeId)
-                .setSearchBtn();
+                .enterEmployeeId(String.valueOf(employeeId))
+                .hitSearchBtn();
 
-        Assert.assertTrue(employeeList.isEmployeeDisplayed(employeeId));
+        Assert.assertTrue(employeeListPage.isEmployeeDisplayed(String.valueOf(employeeId)));
     }
 
+    @Test
+    public void TC_004_Update_Personal_Details(){
+        PersonalDetailsPage personalDetailsPage = getEmployeeListPage()
+                .goToPersonalDetailPage(employeeId)
+                .enterEmployFullName("Rename FirstName","Rename MiddleName","Rename Lastname")
+                .selectNationality("Italian")
+                .selectSmoker("Yes")
+                .selectGender("Male")
+                .hitToSavePersonalDetailsArea();
+
+        Assert.assertTrue(personalDetailsPage.isSuccessUpdatedMessageDisplayed());
+
+    }
     @DataProvider
     public AddNewEmployeeCred[] AddNewEmployeeData() {
         String filePath = "/src/main/java/com/practice/dataTest/data/AddNewEmployee.json";

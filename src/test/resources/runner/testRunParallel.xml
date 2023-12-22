@@ -8,7 +8,7 @@
     <test name="Regression on Chrome">
         <classes>
             <class name="com.practice.tests.web.Employee_Test_001"/>
-            <class name="com.practice.tests.web.HomePageTest"/>
+            <class name="com.practice.tests.web.DashboardPageTest"/>
             <class name="com.practice.tests.web.LeftMenuComponentTest"/>
         </classes>
     </test>
@@ -16,7 +16,7 @@
     <test name="Regression on Firefox">
         <classes>
             <class name="com.practice.tests.web.Employee_Test_001"/>
-            <class name="com.practice.tests.web.HomePageTest"/>
+            <class name="com.practice.tests.web.DashboardPageTest"/>
             <class name="com.practice.tests.web.LeftMenuComponentTest"/>
         </classes>
     </test>

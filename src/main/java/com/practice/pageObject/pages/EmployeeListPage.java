@@ -2,61 +2,55 @@ package com.practice.pageObject.pages;
 
 import com.practice.commons.BasePage;
 import com.practice.pageUI.pages.AddEmpUI;
-import com.practice.pageUI.pages.BasePageUI;
 import com.practice.pageUI.pages.EmpListUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class EmployeeList extends BasePage {
+public class EmployeeListPage extends BasePage {
 
-    public AddEmployee setAddBtn(){
+    public AddEmployeePage setAddBtn(){
         clickToAddBtn();
         return PageGeneratorManager.getAddEmployeePage();
     }
 
-    public EmployeeList setSearchBtn(){
+    public EmployeeListPage hitSearchBtn(){
         clickToSearchBtn();
-        return PageGeneratorManager.getEmployeeListPage();
-    }
-
-    public EmployeeList goToEmployeeDetail(String employeeId) {
-        waitForElementClickable(replaceTextInXpath(EmpListUI.EMPLOYEE_ID_ROW, employeeId));
-        clickToElement(replaceTextInXpath(EmpListUI.EMPLOYEE_ID_ROW, employeeId));
         return this;
     }
 
-    public EmployeeList clickToAvatar() {
-        waitForElementClickable(EmpListUI.IMAGE_PROFILE);
-        clickToElement(EmpListUI.IMAGE_PROFILE);
-        return this;
+    public PersonalDetailsPage goToPersonalDetailPage(String employeeId) {
+        enterEmployeeId(employeeId);
+        hitSearchBtn();
+        By locator = replaceTextInXpath(EmpListUI.EMPLOYEE_ID_ROW, employeeId);
+        clickToElementWithWait(locator);
+        return PageGeneratorManager.getPersonalDetailsPage();
     }
 
-    public EmployeeList clickToChangeAvatar() {
+    public EmployeeListPage clickToAvatar() {
+        clickToElementWithWait(EmpListUI.IMAGE_PROFILE);
         waitForElementClickable(EmpListUI.CHANGE_IMAGE_PROFILE);
-        clickToElement(EmpListUI.CHANGE_IMAGE_PROFILE);
         return this;
     }
 
-    public EmployeeList uploadAvatar() {
+    public EmployeeListPage uploadAvatar() {
         clickToAvatar();
-        clickToChangeAvatar();
-        uploadMultipleFiles(BasePageUI.UPLOAD_FILE, "uploadFile.jpg");
+        uploadMultipleFiles( "uploadFile.jpg");
         clickToSaveBtn();
         return this;
     }
 
     public boolean isSuccessUpdatedMessageDisplayed() {
         waitForElementVisible(EmpListUI.SUCCESSFUL_UPDATED_MESSAGE);
-        return isPresent(EmpListUI.SUCCESSFUL_UPDATED_MESSAGE, WebElement::isDisplayed);
+        return isPresentOrSelectedOrEnabled(EmpListUI.SUCCESSFUL_UPDATED_MESSAGE, WebElement::isDisplayed);
     }
 
-    public EmployeeList enterEmployeeId(String employeeId) {
+    public EmployeeListPage enterEmployeeId(String employeeId) {
         waitForElementClickable(By.xpath(AddEmpUI.EMPLOYEE_ID));
         sendKeyToElement(By.xpath(AddEmpUI.EMPLOYEE_ID), employeeId);
         return this;
     }
 
-    public EmployeeList openTabInPimMenu(String pageTab) {
+    public EmployeeListPage openTabInPimMenu(String pageTab) {
         waitForElementClickable(replaceTextInXpath(EmpListUI.TOP_MENU_IN_PIM,pageTab));
         clickToElement(replaceTextInXpath(EmpListUI.TOP_MENU_IN_PIM,pageTab));
         switch (pageTab) {
@@ -73,6 +67,8 @@ public class EmployeeList extends BasePage {
 
     public boolean isEmployeeDisplayed(String employeeId) {
         waitForElementVisible(replaceTextInXpath(EmpListUI.EMPLOYEE_ID_ROW, employeeId));
-        return isPresent(replaceTextInXpath(EmpListUI.EMPLOYEE_ID_ROW, employeeId), WebElement ::isDisplayed);
+        return isPresentOrSelectedOrEnabled(replaceTextInXpath(EmpListUI.EMPLOYEE_ID_ROW, employeeId), WebElement ::isDisplayed);
     }
+
+
 }

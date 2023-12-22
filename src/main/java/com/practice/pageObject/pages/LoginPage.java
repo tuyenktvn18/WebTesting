@@ -17,13 +17,12 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    private HomePage clickToLoginBtn() {
-        waitForElementClickable(LoginPageUI.LOGIN_BTN);
-        clickToElement(LoginPageUI.LOGIN_BTN);
+    private DashboardPage clickToLoginBtn() {
+        clickToElementWithWait(LoginPageUI.LOGIN_BTN);
         return PageGeneratorManager.getHomePage();
     }
 
-    public HomePage loginToApplication(String userName, String password) {
+    public DashboardPage loginToApplication(String userName, String password) {
         return inputToUserName(userName)
                 .inputToPassword(password)
                 .clickToLoginBtn();

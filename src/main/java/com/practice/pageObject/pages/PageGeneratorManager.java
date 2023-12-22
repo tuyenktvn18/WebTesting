@@ -8,21 +8,25 @@ public class PageGeneratorManager {
         return new LoginPage();
     }
 
-    public static HomePage getHomePage() {
-        return new HomePage();
+    public static DashboardPage getHomePage() {
+        return new DashboardPage();
     }
 
     public static LeftMenuComp getLeftMenuComponents() {
         return new LeftMenuComp();
     }
-    public static AddEmployee getAddEmployeePage() {
-        return new AddEmployee();
+    public static AddEmployeePage getAddEmployeePage() {
+        return new AddEmployeePage();
     }
-    public static EmployeeList getEmployeeListPage() {
-        return new EmployeeList();
+    public static EmployeeListPage getEmployeeListPage() {
+        return new EmployeeListPage();
     }
 
     public static ReportEmployeePage getReportEmpPage() {
         return new ReportEmployeePage();
+    }
+
+    public static PersonalDetailsPage getPersonalDetailsPage() {
+        return new PersonalDetailsPage();
     }
 }

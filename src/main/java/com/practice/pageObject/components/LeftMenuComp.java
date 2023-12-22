@@ -16,6 +16,6 @@ public class LeftMenuComp extends BasePage {
     public boolean isMenuItemDisplayed(String menuType) {
         String xpath = String.format(LeftMenuCompUI.MENU, menuType);
         waitForElementVisible(By.xpath(xpath));
-        return isPresent(By.xpath(xpath),WebElement::isDisplayed);
+        return isPresentOrSelectedOrEnabled(By.xpath(xpath),WebElement::isDisplayed);
     }
 }

@@ -4,14 +4,13 @@ import com.practice.constants.GlobalConstants;
 
 import com.practice.driver.manager.DriverManager;
 import com.practice.enums.pages.CommonBtn;
-import com.practice.pageObject.pages.AddEmployee;
-import com.practice.pageObject.pages.EmployeeList;
-import com.practice.pageObject.pages.PageGeneratorManager;
 import com.practice.pageUI.pages.BasePageUI;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
@@ -151,13 +150,24 @@ public class BasePage {
         }
     }
 
-    public By replaceTextInXpath(String locator , String replace){
+    public void clickToElementWithWait(By by) {
+        waitForElementClickable(by);
+        if (DriverManager.getDriver().toString().contains("internet explorer")) {
+            clickToElementByJS(by);
+            sleepInsecond(3);
+        } else {
+            DriverManager.getDriver().findElement(by).click();
+        }
+    }
+
+    public By replaceTextInXpath(String locator, String replace) {
         return By.xpath(String.format(locator, replace));
     }
+
     public void sendKeyToElement(By by, String textValue) {
         if (!textValue.isEmpty()) {
             WebElement element = DriverManager.getDriver().findElement(by);
-            element.clear();
+            clearValueInElementByDeleteKey(by);
             element.sendKeys(textValue);
         }
     }
@@ -175,8 +185,15 @@ public class BasePage {
         consumer.accept(new Select(DriverManager.getDriver().findElement(by)));
     }
 
-    public static boolean isPresent(By by, Predicate<WebElement> elementPredicate) {
+    public static boolean isPresentOrSelectedOrEnabled(By by, Predicate<WebElement> elementPredicate) {
         return elementPredicate.test(DriverManager.getDriver().findElement(by));
+    }
+
+    public void scrollToElement(By by) {
+        WebElement element = DriverManager.getDriver().findElement(by);
+        JavascriptExecutor jsExcutor = (JavascriptExecutor) DriverManager.getDriver();
+        jsExcutor.executeScript("arguments[0].scrollIntoView(true);", element);
+        sleepInsecond(1);
     }
 
     public void selectItemDropDown(By parentBy, By childBy, String expecteditem) {
@@ -248,7 +265,21 @@ public class BasePage {
         explicitWait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
-    public void uploadMultipleFiles(By by,String... fileNames) {
+    public boolean isJSLoadedSuccess() {
+        WebDriverWait explicitWait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(longTimeout));
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) DriverManager.getDriver();
+
+        ExpectedCondition<Boolean> jsLoad = new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                return jsExecutor.executeScript("return document.readyState").toString().equals("complete");
+            }
+        };
+
+        return explicitWait.until(jsLoad);
+    }
+
+    public void uploadMultipleFiles(String... fileNames) {
         // Đường dẫn của thư mục upload File
         String filePath = GlobalConstants.getGlobalConstants().getUploadFile();
 
@@ -258,8 +289,7 @@ public class BasePage {
             fullFileName = fullFileName + filePath + file + "\n";
         }
         fullFileName = fullFileName.trim();
-//        DriverManager.getDriver().findElement(BasePageUI.UPLOAD_FILE).sendKeys(fullFileName);
-        DriverManager.getDriver().findElement(by).sendKeys(fullFileName);
+        DriverManager.getDriver().findElement(BasePageUI.UPLOAD_FILE).sendKeys(fullFileName);
     }
 
     public int getRandomNumber() {
@@ -273,18 +303,18 @@ public class BasePage {
     }
 
     public void clickToSaveBtn() {
-        waitForElementClickable(replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.SAVE.getBtnName()));
-        clickToElement(replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.SAVE.getBtnName()));
+        By locator = replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.SAVE.getBtnName());
+        clickToElementWithWait(locator);
     }
 
     public void clickToSearchBtn() {
-        waitForElementClickable(replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.SEARCH.getBtnName()));
-        clickToElement(replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.SEARCH.getBtnName()));
+        By locator = replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.SEARCH.getBtnName());
+        clickToElementWithWait(locator);
     }
 
     public void clickToAddBtn() {
-        waitForElementClickable(replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.ADD.getBtnName()));
-        clickToElement(replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.ADD.getBtnName()));
+        By locator = replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.ADD.getBtnName());
+        clickToElementWithWait(locator);
     }
 
     private long longTimeout = GlobalConstants.getGlobalConstants().getLongTimeout();

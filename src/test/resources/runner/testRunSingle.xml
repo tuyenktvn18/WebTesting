@@ -9,7 +9,7 @@
         <parameter name="browserName" value="CHROME"/>
         <classes>
             <class name="com.practice.tests.web.Employee_Test_001"/>
-            <class name="com.practice.tests.web.HomePageTest"/>
+            <class name="com.practice.tests.web.DashboardPageTest"/>
             <class name="com.practice.tests.web.LeftMenuComponentTest"/>
         </classes>
     </test>
