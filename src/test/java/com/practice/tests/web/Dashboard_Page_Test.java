@@ -9,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class DashboardPageTest extends BaseTest {
+public class Dashboard_Page_Test extends BaseTest {
     @FrameworkAnnotation(category = {CategoryType.SMOKE, CategoryType.REGRESSION})
     @Test(groups = {"SMOKE", "REGRESSION"})
     public void testHomePageComponents() {

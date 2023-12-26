@@ -1,4 +1,4 @@
-package com.practice.constants;
+package com.practice.commons;
 
 import lombok.Getter;
 
@@ -17,7 +17,8 @@ public class GlobalConstants {
     }
 
     private final String projectPath = System.getProperty("user.dir");
-    private final String dataTestPath = projectPath + File.separator + "datatests" + File.separator;
+    private final String sourceMainPath = "src" + File.separator + "main" + File.separator + "java" + File.separator + "com" + File.separator + "practice";
+    private final String dataTestPath = projectPath + File.separator + sourceMainPath +File.separator+ "dataTest" + File.separator;
     private final String osName = System.getProperty("os.name");
     private final String javaVersion = System.getProperty("java.version");
     private final String uploadFile = projectPath + File.separator + "uploadFiles" + File.separator;

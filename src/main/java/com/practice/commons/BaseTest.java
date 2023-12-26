@@ -1,13 +1,12 @@
 package com.practice.commons;
 
-import com.practice.constants.GlobalConstants;
 import com.practice.driver.manager.Driver;
 import com.practice.driver.manager.DriverManager;
 import org.joda.time.DateTime;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.*;
-import com.practice.reportConfig.VerificationFailures;
+import com.practice.config.reportConfig.VerificationFailures;
 
 import java.io.File;
 import java.util.Random;

@@ -1,7 +1,5 @@
 package com.practice.commons;
 
-import com.practice.constants.GlobalConstants;
-
 import com.practice.driver.manager.DriverManager;
 import com.practice.enums.pages.CommonBtn;
 import com.practice.pageUI.pages.BasePageUI;
@@ -121,7 +119,6 @@ public class BasePage {
 
     public void closeWindowByID(String currentPageID) {
         Set<String> allWindows = DriverManager.getDriver().getWindowHandles();
-
         for (String window : allWindows) {
             if (!window.equals(currentPageID)) {
                 DriverManager.getDriver().switchTo().window(window);

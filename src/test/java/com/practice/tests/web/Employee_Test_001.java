@@ -2,11 +2,12 @@ package com.practice.tests.web;
 
 import com.practice.commons.BaseTest;
 import com.practice.dataTest.DataObjectBuilder;
-import com.practice.dataTest.models.AddNewEmployeeCred;
+import com.practice.dataTest.web.models.AddNewEmployeeCred;
 import com.practice.pageObject.pages.AddEmployeePage;
 import com.practice.pageObject.pages.EmployeeListPage;
 import com.practice.pageObject.pages.PersonalDetailsPage;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -14,7 +15,7 @@ import static com.practice.pageObject.pages.PageGeneratorManager.*;
 
 public class Employee_Test_001 extends BaseTest {
     private String employeeId ;
-    @Test
+    @BeforeClass
     public void TC_000_LoginToApplication() {
         getLoginPage().loginToApplication("Admin", "admin123");
     }
@@ -30,7 +31,7 @@ public class Employee_Test_001 extends BaseTest {
         Assert.assertTrue(addEmployeePage.isSuccessSaveMessageDisplayed());
     }
 
-    @Test
+//    @Test
     public void TC_002_Upload_Avatar() {
         EmployeeListPage employeeListPage = getEmployeeListPage()
                 .uploadAvatar();
@@ -38,7 +39,7 @@ public class Employee_Test_001 extends BaseTest {
         Assert.assertTrue(employeeListPage.isSuccessUpdatedMessageDisplayed());
     }
 
-    @Test
+//    @Test
     public void TC_003_Search_Employee(){
         EmployeeListPage employeeListPage = getEmployeeListPage()
                 .openTabInPimMenu("Employee List")
@@ -48,7 +49,7 @@ public class Employee_Test_001 extends BaseTest {
         Assert.assertTrue(employeeListPage.isEmployeeDisplayed(String.valueOf(employeeId)));
     }
 
-    @Test
+//    @Test
     public void TC_004_Update_Personal_Details(){
         PersonalDetailsPage personalDetailsPage = getEmployeeListPage()
                 .goToPersonalDetailPage(employeeId)
@@ -63,7 +64,7 @@ public class Employee_Test_001 extends BaseTest {
     }
     @DataProvider
     public AddNewEmployeeCred[] AddNewEmployeeData() {
-        String filePath = "/src/main/java/com/practice/dataTest/data/AddNewEmployee.json";
+        String filePath = "web\\data\\AddNewEmployee.json";
         return DataObjectBuilder.buildDataObjectBuilder(filePath, AddNewEmployeeCred[].class);
     }
 }

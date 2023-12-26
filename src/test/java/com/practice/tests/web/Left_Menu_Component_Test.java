@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import static com.practice.pageObject.pages.PageGeneratorManager.getLeftMenuComponents;
 import static com.practice.pageObject.pages.PageGeneratorManager.getLoginPage;
 
-public class LeftMenuComponentTest extends BaseTest {
+public class Left_Menu_Component_Test extends BaseTest {
 
     @Test
     public void testLeftMenuComponentView() {

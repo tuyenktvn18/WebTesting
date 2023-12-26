@@ -1,4 +1,4 @@
-package com.practice.dataTest.models;
+package com.practice.dataTest.web.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

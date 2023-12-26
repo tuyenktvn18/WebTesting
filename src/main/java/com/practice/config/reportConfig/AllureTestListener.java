@@ -1,4 +1,4 @@
-package com.practice.reportConfig;
+package com.practice.config.reportConfig;
 
 import com.practice.commons.BaseTest;
 import com.practice.driver.manager.DriverManager;

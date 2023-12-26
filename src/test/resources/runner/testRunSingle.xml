@@ -2,15 +2,15 @@
 
 <suite name="Regression" >
     <listeners>
-        <listener class-name="com.practice.reportConfig.MethodListener"/>
-        <listener class-name="com.practice.reportConfig.AllureTestListener"/>
+        <listener class-name="com.practice.config.reportConfig.MethodListener"/>
+        <listener class-name="com.practice.config.reportConfig.AllureTestListener"/>
     </listeners>
     <test name="Regression on Chrome">
         <parameter name="browserName" value="CHROME"/>
         <classes>
             <class name="com.practice.tests.web.Employee_Test_001"/>
-            <class name="com.practice.tests.web.DashboardPageTest"/>
-            <class name="com.practice.tests.web.LeftMenuComponentTest"/>
+            <class name="com.practice.tests.web.Dashboard_Page_Test"/>
+            <class name="com.practice.tests.web.Left_Menu_Component_Test"/>
         </classes>
     </test>
 </suite>

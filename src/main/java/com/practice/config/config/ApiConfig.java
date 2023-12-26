@@ -15,9 +15,4 @@ public interface ApiConfig extends Config {
   @Key("api.baseurl")
   String apiBaseUrl();
 
-  @Key("list.users")
-  String listUserEndpoint();
-
-  @Key("create.users")
-  String postUserEndpoint();
 }

@@ -1,9 +1,7 @@
 package com.practice.pageObject.pages;
 
-import com.practice.dataTest.models.AddNewEmployeeCred;
+import com.practice.dataTest.web.models.AddNewEmployeeCred;
 import com.practice.pageUI.pages.AddEmpUI;
-import com.practice.pageUI.pages.BasePageUI;
-import io.qameta.allure.internal.shadowed.jackson.databind.ser.Serializers;
 import org.openqa.selenium.WebElement;
 
 public class AddEmployeePage extends EmployeeListPage {
