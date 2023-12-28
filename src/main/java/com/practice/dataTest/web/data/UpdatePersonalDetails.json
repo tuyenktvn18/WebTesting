@@ -1,0 +1,24 @@
+[
+  {
+    "firstName": "",
+    "lastName": "",
+    "middleName": "",
+    "employeeId": "",
+    "nationality": "",
+    "maritalStatus": "",
+    "dateOfBirth": "",
+    "smoker": "",
+    "gender": ""
+
+  },
+  {
+    "firstName": "Demo",
+    "lastName": "User",
+    "middleName": "middle",
+    "nationality": "Afghan",
+    "maritalStatus": "Single",
+    "dateOfBirth": "1994-10-07",
+    "smoker": "Yes",
+    "gender": "Male"
+  }
+]

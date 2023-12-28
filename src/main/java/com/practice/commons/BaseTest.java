@@ -11,6 +11,8 @@ import com.practice.config.reportConfig.VerificationFailures;
 import java.io.File;
 import java.util.Random;
 
+import static com.practice.pageObject.pages.PageGeneratorManager.getLoginPage;
+
 public class BaseTest {
 
     @BeforeSuite

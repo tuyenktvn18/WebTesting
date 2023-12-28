@@ -1,4 +1,4 @@
-package com.practice.tests.web;
+package com.practice.tests.web.Dashboard;
 
 import com.practice.annotations.FrameworkAnnotation;
 import com.practice.commons.BaseTest;
@@ -9,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class Dashboard_Page_Test extends BaseTest {
+public class Auto_001_Dashboard_Page_Test extends BaseTest {
     @FrameworkAnnotation(category = {CategoryType.SMOKE, CategoryType.REGRESSION})
     @Test(groups = {"SMOKE", "REGRESSION"})
     public void testHomePageComponents() {

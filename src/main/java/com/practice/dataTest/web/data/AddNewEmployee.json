@@ -1,12 +1,6 @@
-[
-  {
-    "firstName": "Demo",
-    "lastName": "User",
-    "middleName": "middle"
-  },
-  {
-    "firstName": "Demo2",
-    "lastName": "last2",
-    "middleName": "middle2"
-  }
-]
+{
+  "firstName": "Demo",
+  "lastName": "User",
+  "middleName": "middle",
+  "employeeId": ""
+}

@@ -162,11 +162,9 @@ public class BasePage {
     }
 
     public void sendKeyToElement(By by, String textValue) {
-        if (!textValue.isEmpty()) {
-            WebElement element = DriverManager.getDriver().findElement(by);
-            clearValueInElementByDeleteKey(by);
-            element.sendKeys(textValue);
-        }
+        WebElement element = DriverManager.getDriver().findElement(by);
+        clearValueInElementByDeleteKey(by);
+        element.sendKeys(textValue);
     }
 
     public void clearValueInElementByDeleteKey(By by) {
@@ -312,6 +310,11 @@ public class BasePage {
     public void clickToAddBtn() {
         By locator = replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.ADD.getBtnName());
         clickToElementWithWait(locator);
+    }
+
+    public boolean checkResultList(List<Boolean> booleanList) {
+        if (booleanList.contains(false)) return false;
+        else return true;
     }
 
     private long longTimeout = GlobalConstants.getGlobalConstants().getLongTimeout();

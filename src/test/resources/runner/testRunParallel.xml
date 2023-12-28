@@ -7,17 +7,17 @@
     </listeners>
     <test name="Regression on Chrome">
         <classes>
-            <class name="com.practice.tests.web.Employee_Test_001"/>
-            <class name="com.practice.tests.web.Dashboard_Page_Test"/>
-            <class name="com.practice.tests.web.Left_Menu_Component_Test"/>
+            <class name="com.practice.tests.web.PIM.Auto_003_Add_New_Employee"/>
+            <class name="com.practice.tests.web.Dashboard.Auto_001_Dashboard_Page_Test"/>
+            <class name="com.practice.tests.web.Dashboard.Auto_002_Left_Menu_Component_Test"/>
         </classes>
     </test>
 
     <test name="Regression on Firefox">
         <classes>
-            <class name="com.practice.tests.web.Employee_Test_001"/>
-            <class name="com.practice.tests.web.Dashboard_Page_Test"/>
-            <class name="com.practice.tests.web.Left_Menu_Component_Test"/>
+            <class name="com.practice.tests.web.PIM.Auto_003_Add_New_Employee"/>
+            <class name="com.practice.tests.web.Dashboard.Auto_001_Dashboard_Page_Test"/>
+            <class name="com.practice.tests.web.Dashboard.Auto_002_Left_Menu_Component_Test"/>
         </classes>
     </test>
 

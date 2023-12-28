@@ -1,4 +1,4 @@
-package com.practice.tests.web;
+package com.practice.tests.web.Dashboard;
 
 import com.practice.commons.BaseTest;
 import com.practice.enums.pages.LeftMenuEnums;
@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import static com.practice.pageObject.pages.PageGeneratorManager.getLeftMenuComponents;
 import static com.practice.pageObject.pages.PageGeneratorManager.getLoginPage;
 
-public class Left_Menu_Component_Test extends BaseTest {
+public class Auto_002_Left_Menu_Component_Test extends BaseTest {
 
     @Test
     public void testLeftMenuComponentView() {

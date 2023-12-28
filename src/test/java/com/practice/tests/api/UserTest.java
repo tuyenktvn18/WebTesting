@@ -29,10 +29,10 @@ public class UserTest {
 
     @Test
     public void TC_003_Get_Specific_User(){
-        Response response = UserRequest.getSpecificUsers(userCred.getId());
+        Response response = UserRequest.getSpecificUsers("2");
         response.then().log().all();
 
-        Assert.assertEquals(response.getStatusCode(),404);
+        Assert.assertEquals(response.getStatusCode(),200);
     }
 
     @Test

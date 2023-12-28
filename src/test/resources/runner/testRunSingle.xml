@@ -8,9 +8,8 @@
     <test name="Regression on Chrome">
         <parameter name="browserName" value="CHROME"/>
         <classes>
-            <class name="com.practice.tests.web.Employee_Test_001"/>
-            <class name="com.practice.tests.web.Dashboard_Page_Test"/>
-            <class name="com.practice.tests.web.Left_Menu_Component_Test"/>
+            <class name="com.practice.tests.web.PIM.Auto_003_Add_New_Employee"/>
+            <class name="com.practice.tests.web.PIM.Auto_004_Update_Personal_Details"/>
         </classes>
     </test>
 </suite>
