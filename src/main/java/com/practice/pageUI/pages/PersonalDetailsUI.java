@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 
 public class PersonalDetailsUI {
     public static final By NATIONALITY_DROPDOWN = By.xpath("//label[text()='Nationality']/..//following-sibling::div//i");
+    public static final By NATIONALITY_VALUE = By.xpath("//label[text()='Nationality']/..//following-sibling::div//div[@class='oxd-select-text-input']");
     public static final By DATE_OF_BIRTH = By.xpath("//label[text()='Date of Birth']/..//following-sibling::div//input");
     public static final String NATIONALITY_OPTION_DROPDOWN = "//div[@role='option']//span[text()='%s']";
     public static final String GENDER_RADIO_BTN = "//label[text()='%s']/span";

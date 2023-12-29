@@ -149,12 +149,7 @@ public class BasePage {
 
     public void clickToElementWithWait(By by) {
         waitForElementClickable(by);
-        if (DriverManager.getDriver().toString().contains("internet explorer")) {
-            clickToElementByJS(by);
-            sleepInsecond(3);
-        } else {
-            DriverManager.getDriver().findElement(by).click();
-        }
+        DriverManager.getDriver().findElement(by).click();
     }
 
     public By replaceTextInXpath(String locator, String replace) {
@@ -315,6 +310,10 @@ public class BasePage {
     public boolean checkResultList(List<Boolean> booleanList) {
         if (booleanList.contains(false)) return false;
         else return true;
+    }
+
+    public String convertByToString(By by) {
+        return by.toString().substring(9);
     }
 
     private long longTimeout = GlobalConstants.getGlobalConstants().getLongTimeout();

@@ -2,6 +2,7 @@ package com.practice.pageObject.pages;
 
 import com.practice.commons.BasePage;
 import com.practice.dataTest.web.models.UpdatePersonalDetailsCred;
+import com.practice.pageUI.pages.AddEmpUI;
 import com.practice.pageUI.pages.EmpListUI;
 import com.practice.pageUI.pages.PersonalDetailsUI;
 import org.openqa.selenium.By;
@@ -13,6 +14,7 @@ public class PersonalDetailsPage extends BasePage {
 
     private final AddEmployeePage addEmployeePage;
     private List<Boolean> results;
+    List<String> verifyUI = new ArrayList<>();
 
     public PersonalDetailsPage() {
         this.addEmployeePage = new AddEmployeePage();
@@ -78,6 +80,12 @@ public class PersonalDetailsPage extends BasePage {
         return this;
     }
 
+    public String getTextOfNationality() {
+        String result = getText(PersonalDetailsUI.NATIONALITY_VALUE, WebElement::getText);
+        if (result.equals("-- Select --")) return "";
+        else return result;
+    }
+
     public boolean checkMessageDisplayed(UpdatePersonalDetailsCred updatePersonalCred) {
         results = new ArrayList<>();
         if (updatePersonalCred.getFirstName().isEmpty()) {
@@ -89,4 +97,13 @@ public class PersonalDetailsPage extends BasePage {
         return checkResultList(results);
     }
 
+    public List<String> getInfoDisplayed() {
+        List<String> actualUIDisplayed = new ArrayList<>();
+        actualUIDisplayed.add(getElementValueByJsXpath(convertByToString(AddEmpUI.FIRST_NAME_TEXT_BOX)));
+        actualUIDisplayed.add(getElementValueByJsXpath(convertByToString(AddEmpUI.MIDDLE_NAME_TEXT_BOX)));
+        actualUIDisplayed.add(getElementValueByJsXpath(convertByToString(AddEmpUI.LAST_NAME_TEXT_BOX)));
+        actualUIDisplayed.add(getTextOfNationality());
+        return actualUIDisplayed;
+    }
 }
+

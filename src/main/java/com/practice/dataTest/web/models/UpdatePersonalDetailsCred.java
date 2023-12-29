@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
-@AllArgsConstructor
 public class UpdatePersonalDetailsCred {
     private String firstName;
     private String lastName;
@@ -18,4 +20,12 @@ public class UpdatePersonalDetailsCred {
     private String smoker;
     private String gender;
 
+    public List<String> getVerifyUIList(){
+        List<String> verifyUIList = new ArrayList<>();
+        verifyUIList.add(getFirstName());
+        verifyUIList.add(getMiddleName());
+        verifyUIList.add(getLastName());
+        verifyUIList.add(getNationality());
+        return verifyUIList;
+    }
 }
