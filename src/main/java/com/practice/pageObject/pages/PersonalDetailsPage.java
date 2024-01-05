@@ -1,7 +1,7 @@
 package com.practice.pageObject.pages;
 
-import com.practice.commons.BasePage;
 import com.practice.dataTest.web.models.UpdatePersonalDetailsCred;
+import com.practice.pageObject.components.CommonBtnAndWaitIcon;
 import com.practice.pageUI.pages.AddEmpUI;
 import com.practice.pageUI.pages.EmpListUI;
 import com.practice.pageUI.pages.PersonalDetailsUI;
@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonalDetailsPage extends BasePage {
+public class PersonalDetailsPage extends CommonBtnAndWaitIcon {
 
     private final AddEmployeePage addEmployeePage;
     private List<Boolean> results;
@@ -21,7 +21,7 @@ public class PersonalDetailsPage extends BasePage {
     }
 
     public PersonalDetailsPage enterEmployFullName(String firstname, String middleName, String lastName) {
-        sleepInsecond(6);
+
         addEmployeePage.enterFirstNameTextBox(firstname);
         addEmployeePage.enterMiddleNameTextBox(middleName);
         addEmployeePage.enterLastNameTextBox(lastName);
@@ -42,12 +42,15 @@ public class PersonalDetailsPage extends BasePage {
 
     public PersonalDetailsPage selectSmoker(String option) {
         By locator = replaceTextInXpath(PersonalDetailsUI.SMOKER_CHECK_BOX, option);
-        clickToElementWithWait(locator);
+        waitForElementClickable(locator);
+        clickToElement(locator);
         return this;
     }
 
     public PersonalDetailsPage hitToSavePersonalDetailsArea() {
-        clickToElementWithWait(PersonalDetailsUI.SAVE_BTN_PERSONAL_DETAILS);
+        waitUntilLoadIconDisappear();
+        waitForElementClickable(PersonalDetailsUI.SAVE_BTN_PERSONAL_DETAILS);
+        clickToElement(PersonalDetailsUI.SAVE_BTN_PERSONAL_DETAILS);
         return this;
     }
 
@@ -69,6 +72,7 @@ public class PersonalDetailsPage extends BasePage {
     }
 
     public PersonalDetailsPage fillDetailsInPersonalDetails(UpdatePersonalDetailsCred updatePersonalCred) {
+        sleepInsecond(6);
         if (updatePersonalCred.getFirstName().isEmpty()) enterEmployFullName("", "", "");
         else {
             enterEmployFullName(updatePersonalCred.getFirstName(), updatePersonalCred.getMiddleName(), updatePersonalCred.getLastName());

@@ -29,7 +29,6 @@ public class AddEmployeePage extends EmployeeListPage {
         enterMiddleNameTextBox(addNewEmployeeCred.getMiddleName());
         enterLastNameTextBox(addNewEmployeeCred.getLastName());
         enterEmployeeId((addNewEmployeeCred.getEmployeeId()));
-        clickToSaveBtn();
         return this;
     }
 
@@ -43,4 +42,9 @@ public class AddEmployeePage extends EmployeeListPage {
     }
 
 
+    public AddEmployeePage hitSaveBtn() {
+        waitUntilLoadIconDisappear();
+        clickToSaveBtn();
+        return this;
+    }
 }

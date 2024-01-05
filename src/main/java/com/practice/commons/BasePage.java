@@ -1,7 +1,6 @@
 package com.practice.commons;
 
 import com.practice.driver.manager.DriverManager;
-import com.practice.enums.pages.CommonBtn;
 import com.practice.pageUI.pages.BasePageUI;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -139,16 +138,6 @@ public class BasePage {
     }
 
     public void clickToElement(By by) {
-        if (DriverManager.getDriver().toString().contains("internet explorer")) {
-            clickToElementByJS(by);
-            sleepInsecond(3);
-        } else {
-            DriverManager.getDriver().findElement(by).click();
-        }
-    }
-
-    public void clickToElementWithWait(By by) {
-        waitForElementClickable(by);
         DriverManager.getDriver().findElement(by).click();
     }
 
@@ -184,6 +173,10 @@ public class BasePage {
         JavascriptExecutor jsExcutor = (JavascriptExecutor) DriverManager.getDriver();
         jsExcutor.executeScript("arguments[0].scrollIntoView(true);", element);
         sleepInsecond(1);
+    }
+
+    public List<WebElement> getListWebElement(By by) {
+        return DriverManager.getDriver().findElements(by);
     }
 
     public void selectItemDropDown(By parentBy, By childBy, String expecteditem) {
@@ -245,6 +238,11 @@ public class BasePage {
         explicitWait.until(ExpectedConditions.invisibilityOfAllElements(DriverManager.getDriver().findElements(by)));
     }
 
+    public void waitForAllElementInvisible(WebElement webElement) {
+        WebDriverWait explicitWait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(longTimeout));
+        explicitWait.until(ExpectedConditions.invisibilityOfAllElements(webElement));
+    }
+
     public void scrollToBottomPage() {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) DriverManager.getDriver();
         jsExecutor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
@@ -290,21 +288,6 @@ public class BasePage {
     public String getHeaderName() {
         waitForElementVisible(BasePageUI.HEADER_NAME);
         return getText(BasePageUI.HEADER_NAME, WebElement::getText);
-    }
-
-    public void clickToSaveBtn() {
-        By locator = replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.SAVE.getBtnName());
-        clickToElementWithWait(locator);
-    }
-
-    public void clickToSearchBtn() {
-        By locator = replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.SEARCH.getBtnName());
-        clickToElementWithWait(locator);
-    }
-
-    public void clickToAddBtn() {
-        By locator = replaceTextInXpath(BasePageUI.COMMON_BTN, CommonBtn.ADD.getBtnName());
-        clickToElementWithWait(locator);
     }
 
     public boolean checkResultList(List<Boolean> booleanList) {

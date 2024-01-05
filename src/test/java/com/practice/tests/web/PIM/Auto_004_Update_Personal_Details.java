@@ -26,7 +26,8 @@ public class Auto_004_Update_Personal_Details extends BaseTest {
         getHomePage()
                 .navigateToEmpListPage()
                 .setAddBtn()
-                .fillDetailsInAddNewEmp(employeeCred);
+                .fillDetailsInAddNewEmp(employeeCred)
+                .hitSaveBtn();
     }
 
     @Test(dataProvider = "updatePersonalDetails")

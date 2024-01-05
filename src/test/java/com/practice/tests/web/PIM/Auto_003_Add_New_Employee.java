@@ -28,7 +28,8 @@ public class Auto_003_Add_New_Employee extends BaseTest {
         AddEmployeePage addEmployeePage = getHomePage()
                 .navigateToEmpListPage()
                 .setAddBtn()
-                .fillDetailsInAddNewEmp(addNewEmployeeCred);
+                .fillDetailsInAddNewEmp(addNewEmployeeCred)
+                .hitSaveBtn();
         Assert.assertTrue(addEmployeePage.isSuccessSaveMessageDisplayed());
     }
 

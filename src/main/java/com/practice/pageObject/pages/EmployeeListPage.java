@@ -1,12 +1,12 @@
 package com.practice.pageObject.pages;
 
-import com.practice.commons.BasePage;
+import com.practice.pageObject.components.CommonBtnAndWaitIcon;
 import com.practice.pageUI.pages.AddEmpUI;
 import com.practice.pageUI.pages.EmpListUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class EmployeeListPage extends BasePage {
+public class EmployeeListPage extends CommonBtnAndWaitIcon {
 
     public AddEmployeePage setAddBtn(){
         clickToAddBtn();
@@ -22,12 +22,14 @@ public class EmployeeListPage extends BasePage {
         enterEmployeeId(employeeId);
         hitSearchBtn();
         By locator = replaceTextInXpath(EmpListUI.EMPLOYEE_ID_ROW, employeeId);
-        clickToElementWithWait(locator);
+        waitForElementClickable(locator);
+        clickToElement(locator);
         return PageGeneratorManager.getPersonalDetailsPage();
     }
 
     public EmployeeListPage clickToAvatar() {
-        clickToElementWithWait(EmpListUI.IMAGE_PROFILE);
+        waitForElementClickable(EmpListUI.IMAGE_PROFILE);
+        clickToElement(EmpListUI.IMAGE_PROFILE);
         waitForElementClickable(EmpListUI.CHANGE_IMAGE_PROFILE);
         return this;
     }

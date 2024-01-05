@@ -18,7 +18,8 @@ public class LoginPage extends BasePage {
     }
 
     private DashboardPage clickToLoginBtn() {
-        clickToElementWithWait(LoginPageUI.LOGIN_BTN);
+        waitForElementClickable(LoginPageUI.LOGIN_BTN);
+        clickToElement(LoginPageUI.LOGIN_BTN);
         return PageGeneratorManager.getHomePage();
     }
 
