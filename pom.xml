@@ -127,7 +127,7 @@
                         <allure.link.tms.pattern>https://example.org/browse/{}</allure.link.tms.pattern>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
-                        <file>src/test/resources/runner/testRunParallel.xml</file>
+                        <file>src/test/resources/runner/testRunSingle.xml</file>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>

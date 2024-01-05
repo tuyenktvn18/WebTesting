@@ -15,6 +15,8 @@ import java.net.URL;
 
 @LoadPolicy(Config.LoadType.MERGE)
 @Sources({
+        "system:properties",
+        "system:env",
         "file:${user.dir}/src/test/resources/config/config.properties",
         "file:${user.dir}/src/test/resources/config/staging-config.properties",
         "file:${user.dir}/src/test/resources/config/dev-config.properties"})

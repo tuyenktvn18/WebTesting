@@ -28,4 +28,14 @@ public class UpdatePersonalDetailsCred {
         verifyUIList.add(getNationality());
         return verifyUIList;
     }
+
+    @Override
+    public String toString() {
+        return "UpdatePersonalDetailsCred{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", employeeId='" + employeeId + '\'' +
+                '}';
+    }
 }
