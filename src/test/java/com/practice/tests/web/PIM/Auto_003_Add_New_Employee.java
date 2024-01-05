@@ -7,7 +7,6 @@ import com.practice.pageObject.pages.AddEmployeePage;
 import com.practice.pageObject.pages.EmployeeListPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static com.practice.pageObject.pages.PageGeneratorManager.*;
@@ -20,8 +19,10 @@ public class Auto_003_Add_New_Employee extends BaseTest {
         getLoginPage().loginToApplication("Admin", "admin123");
     }
 
-    @Test(dataProvider = "addNewEmployeeData")
-    public void TC_001_Add_New_Employee(AddNewEmployeeCred addNewEmployeeCred) {
+    @Test
+    public void TC_001_Add_New_Employee() {
+        AddNewEmployeeCred addNewEmployeeCred = DataObjectBuilder.
+                buildDataObjectBuilder("web\\data\\AddNewEmployee.json", AddNewEmployeeCred.class);
         addNewEmployeeCred.setEmployeeId(String.valueOf(getRandomNumber()));
         employeeId = addNewEmployeeCred.getEmployeeId();
         AddEmployeePage addEmployeePage = getHomePage()
@@ -47,11 +48,5 @@ public class Auto_003_Add_New_Employee extends BaseTest {
                 .hitSearchBtn();
 
         Assert.assertTrue(employeeListPage.isEmployeeDisplayed(String.valueOf(employeeId)));
-    }
-
-    @DataProvider
-    public AddNewEmployeeCred[] addNewEmployeeData() {
-        String filePath = "web\\data\\AddNewEmployee.json";
-        return DataObjectBuilder.buildDataObjectBuilder(filePath, AddNewEmployeeCred[].class);
     }
 }

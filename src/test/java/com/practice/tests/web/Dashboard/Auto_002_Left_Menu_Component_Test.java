@@ -12,7 +12,7 @@ import static com.practice.pageObject.pages.PageGeneratorManager.getLoginPage;
 public class Auto_002_Left_Menu_Component_Test extends BaseTest {
 
     @Test
-    public void testLeftMenuComponentView() {
+    public void TC_001_Left_Menu_Component_View() {
         getLoginPage().loginToApplication("Admin", "admin123");
         LeftMenuComp leftMenuComp = getLeftMenuComponents();
         for (int i = 0; i < LeftMenuEnums.MenuTypeNames.size(); i++) {

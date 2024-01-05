@@ -19,7 +19,8 @@ public class Auto_004_Update_Personal_Details extends BaseTest {
 
     @BeforeClass
     public void LoginToApplication() {
-        AddNewEmployeeCred employeeCred = DataObjectBuilder.buildDataObjectBuilder("web\\data\\AddNewEmployee.json", AddNewEmployeeCred.class);
+        AddNewEmployeeCred employeeCred = DataObjectBuilder.
+                buildDataObjectBuilder("web\\data\\AddNewEmployee.json", AddNewEmployeeCred.class);
         employeeCred.setEmployeeId(String.valueOf(getRandomNumber()));
         getLoginPage().loginToApplication("Admin", "admin123");
         getHomePage()
