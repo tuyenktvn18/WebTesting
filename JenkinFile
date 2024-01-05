@@ -1,0 +1,14 @@
+node{
+ stage ('1 - get Code and Compile'){
+    git 'https://github.com/tuyenktvn18/WebTesting.git'
+ }
+   stage ('2 - Run Test'){
+   timestamps {}
+   ansiColor('xterm'){}
+   bat label: 'Compiler and clean', script:'mvn clean'
+   bat label: 'Run tests', script:'mvn test'
+   }
+   stage ('3 - Public report'){
+    allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+   }
+}
